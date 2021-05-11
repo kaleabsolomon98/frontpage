@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Alber Einstaine",
+        "gender": "Male",
+        "img": "assets/albert.jpg"
+    },
+    {
+        "title": "Oprah winfrey",
+        "gender": "Female",
+        "img": "assets/oprah.jpg"
+    },
+    {
+        "title": "Mohamed Ali",
+        "gender": "Male",
+        "img": "assets/mohamedali.jpg"
+    },
+    {
+        "title": "Newton",
+        "gender": "Male",
+        "img": "assets/newton.jpg"
+    },
+    {
+        "title": "RosaPark",
+        "gender": "Female",
+        "img": "assets/roaspark.jpg"
+    },
+    {
+        "title": "jelani",
+        "gender": "Male",
+        "img": "assets/newton.jpg"
+    },
+    {
+        "title": "BarakObama",
+        "gender": "Male",
+        "img": "assets/obama.jpg"
+    },
+    {
+        "title": "Zukenberg",
+        "gender": "Male",
+        "img": "assets/mohamedali.jpg"
+    }
+]
