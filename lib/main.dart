@@ -1,72 +1,38 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project4/repository/quoteRepository.dart';
+import 'package:project4/screens/HomePage.dart';
+import 'package:project4/widgets/DrawerContent.dart';
 
-void main() => runApp(MyApp());
+import 'blocs/quoteBloc/quoteBloc.dart';
+import 'blocs/quoteBloc/quoteEvent.dart';
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: Scaffold(
-          backgroundColor: Colors.indigoAccent,
-          appBar: AppBar(
-            title: Center(
-              child: Text(
-                "Qoutes",
-                style: TextStyle(fontSize: 28),
-              ),
-            ),
-          ),
-          body: ListViewHome(),
-        ));
-  }
+void main() {
+  runApp(MyApp());
 }
 
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-//......this is the other class called above"......../////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-
-class ListViewHome extends StatelessWidget {
-  int index = 0;
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: DefaultAssetBundle.of(context)
-            .loadString('assets/loadjson/details.json'),
-        builder: (context, snapshot) {
-          // Decode the JSON
-          var newData = json.decode(snapshot.data.toString());
-          return ListView.builder(
-          
-              itemCount: newData.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          topLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                          topRight: Radius.circular(10)),
-                      side: BorderSide(width: 5, color: Colors.green)),
-                  child: ListTile(
-                    title: Text(
-                      newData[index]['title'],
-                    ),
-                    subtitle: Text(newData[index]['gender']),
-                    leading: CircleAvatar(
-                        backgroundImage: AssetImage(newData[index]['img'])),
-                    trailing: Icon(Icons.star),
-                  ),
-                );
-              });
-        });
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false ,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Teen Quote"),
+        ),
+        body: BlocProvider(
+            create: (BuildContext context) => QuoteBloc(QuoteRepository())..add(FetchQuote()),
+            child: HomePage()
+        ),
+
+        drawer: Drawer(
+            child:drawerContent(context)
+        ), //this will just add the Navigation Drawer  Icon
+      ),
+    );
   }
+
+
+
 }
