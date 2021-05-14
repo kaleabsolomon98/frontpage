@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false ,
       home: Scaffold(
+         backgroundColor: Colors.blueAccent,
         appBar: AppBar(
           title: Text("Teen Quote"),
         ),
