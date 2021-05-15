@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project4/blocs/quoteBloc/quote.dart';
-import 'package:project4/screens/SplashScreen.dart';
 import 'package:project4/screens/HomePage.dart';
 import 'package:project4/widgets/SplashScreenWidget.dart';
 
