@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project4/models/QuoteModel.dart';
-
-
+import 'package:project4/screens/aftertab.dart';
 
 //class HomePageContent extends StatelessWidget {
 //   QuoteModel quote;
@@ -41,11 +40,7 @@ import 'package:project4/models/QuoteModel.dart';
 //  }
 //}
 
-
 Widget homePageContent(List<QuoteModel> quotes) {
-
-
-
   return Expanded(
     child: ListView.builder(
       itemCount: quotes.length,
@@ -53,15 +48,23 @@ Widget homePageContent(List<QuoteModel> quotes) {
         return Container(
           child: Card(
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-            ),
-            elevation: 10,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                    topLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                    topRight: Radius.circular(10)),
+                side: BorderSide(width: 5, color: Colors.green)),
+            elevation: 5,
             child: Column(
               children: <Widget>[
-                 ListTile(
+                ListTile(
                   leading: Icon(Icons.album, size: 50),
-                  title: Text(quotes[index].quote),
-                  subtitle: Text(quotes[index].tag),
+                  title: Text(quotes[index].quote_writer),
+                  subtitle: Text(quotes[index].quote),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AfterTab(quotes[index].quote))),
                 ),
               ],
             ),

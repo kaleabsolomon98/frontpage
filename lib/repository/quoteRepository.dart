@@ -2,8 +2,6 @@ import 'package:http/http.dart' as http;
 import 'package:project4/helper/Constants.dart';
 import 'dart:convert';
 import 'package:project4/models/QuoteModel.dart';
-import 'package:flutter/material.dart';
-
 
 
 class QuoteRepository{
