@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project4/models/QuoteModel.dart';
+import 'package:project4/screens/DetailPage.dart';
+import 'package:project4/screens/HomePage.dart';
 
 
 
@@ -62,12 +64,18 @@ Widget homePageContent(List<QuoteModel> quotes) {
                   leading: Icon(Icons.album, size: 50),
                   title: Text(quotes[index].quote),
                   subtitle: Text(quotes[index].tag),
+                   onTap: (){
+                     Navigator.of(context).push(MaterialPageRoute(builder:(_) => DetailPage()));
+                   }
+                   ,
                 ),
               ],
             ),
           ),
         );
+
       },
+
     ),
   );
 }
