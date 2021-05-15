@@ -83,6 +83,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.0.0"
+
+  flutter_spinkit:
+    dependency: "direct main"
+    description:
+      name: flutter_spinkit
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.2+1"
+
   flutter_paginator:
     dependency: "direct main"
     description:
@@ -90,6 +99,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.6"
+
   flutter_test:
     dependency: "direct dev"
     description: flutter
