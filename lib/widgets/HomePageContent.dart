@@ -51,8 +51,6 @@ Widget homePageContent(List<QuoteModel> quotes) {
       itemCount: quotes.length,
       itemBuilder: (context, index) {
         return Container(
-          height: 100,
-          width: 100,
           child: Card(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15.0),
