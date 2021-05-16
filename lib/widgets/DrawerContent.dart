@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project4/blocs/quoteBloc/quote.dart';
+import 'package:project4/screens/HomePage.dart';
 
 Widget drawerContent(BuildContext context){
   return ListView(
@@ -20,19 +23,49 @@ Widget drawerContent(BuildContext context){
       ListTile(
         title: Text("Inspirational"),
         trailing: Icon(Icons.star),
+        onTap: (){
+          BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("Inspirational"));
+        },
       ),
       ListTile(
-        title: Text("Famous"),
+        title: Text("Friends"),
         trailing: Icon(Icons.star),
+        onTap: (){
+          BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("Friends"));
+        },
       ),
       ListTile(
-        title: Text("scientific"),
+        title: Text("School"),
         trailing: Icon(Icons.star),
+        onTap: (){
+          BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("School"));
+        },
       ),
       ListTile(
-
-        title: Text("Love"),
+        title: Text("Awkward"),
         trailing: Icon(Icons.star),
+        onTap: (){
+            Navigator.of(context).pop(BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("Awkward")))  ;
+        },
+      ),
+      ListTile(
+        title: Text("Book"),
+        trailing: Icon(Icons.star),
+        onTap: (){},
+      ),
+      ListTile(
+        title: Text("Family"),
+        trailing: Icon(Icons.star),
+        onTap: (){
+          BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("Family"));
+        },
+      ),
+      ListTile(
+        title: Text("Holiday"),
+        trailing: Icon(Icons.star),
+        onTap: (){
+          BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("Holiday"));
+        },
       ),
     ],
 

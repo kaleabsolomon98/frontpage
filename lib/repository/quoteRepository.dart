@@ -2,20 +2,20 @@ import 'package:http/http.dart' as http;
 import 'package:project4/helper/Constants.dart';
 import 'dart:convert';
 import 'package:project4/models/QuoteModel.dart';
-import 'package:flutter/material.dart';
 
 
 
 class QuoteRepository{
 
-  Future<List<QuoteModel>> getQuotesByTag(String tag) async{
-    final result = await http.Client().get(Uri.parse(baseUrl),headers:<String,String>{'authorization':basicAuth});
+    Future<List<QuoteModel>> getQuotesByTag(String tag) async{
+    final result = await http.Client().get(Uri.parse("https://datascienceplc.com/apps/manager/api/items/blog/search?app_id=7&rand=234544&tag=$tag"),headers:<String,String>{'authorization':basicAuth});
 
     if(result.statusCode != 200)
       throw Exception();
     return parsedJson(result.body);
 
   }
+
   Future<List<QuoteModel>> getQuotes() async{
     print('one the getQuote method');
     final result = await http.Client().get(Uri.parse(baseUrl),headers:<String,String>{'authorization':basicAuth});
@@ -30,6 +30,16 @@ class QuoteRepository{
     return parsedJson(result.body);
 
   }
+    Future<List<QuoteModel>> getDetailQuote(String position) async{
+      final result = await http.Client().get(Uri.parse(baseUrlGetQuoteDetail),headers:<String,String>{'authorization':basicAuth});
+
+      if(result.statusCode != 200)
+        throw Exception();
+      return parsedJson(result.body);
+
+    }
+
+
 
 
   List<QuoteModel> parsedJson(final response){

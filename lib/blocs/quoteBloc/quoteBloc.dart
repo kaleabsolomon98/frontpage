@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project4/blocs/quoteBloc/quoteEvent.dart';
 import 'package:project4/blocs/quoteBloc/quoteState.dart';
@@ -34,6 +33,15 @@ class QuoteBloc extends Bloc<QuoteEvent,QuoteState>{
       }catch(_) {
         yield QuoteIsNotLoaded();
       }
+    }else if(event is QuoteDetailEvent){
+      yield QuoteIsLoading();
+      try{
+
+
+      }catch(e){
+        yield QuoteIsNotLoaded();
+      }
+
     }
   }
 
