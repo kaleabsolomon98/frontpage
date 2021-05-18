@@ -10,7 +10,7 @@ Widget SplashScreenWidget() {
 }
 
 Widget LoadingWidget(){
-  return SpinKitFadingGrid(
+  return SpinKitWave(
     color: Colors.black,
     size: 40,
   );

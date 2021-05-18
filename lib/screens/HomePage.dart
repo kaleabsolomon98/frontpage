@@ -22,11 +22,12 @@ class HomePage extends StatelessWidget {
           title: Text("Teen Quote"),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             BlocBuilder<QuoteBloc, QuoteState>(builder: (context, state) {
               if (state is QuoteIsLoading) {
 //                print("comes here:HOME PAGE: " + state.getQuotes[1].quote.toString());
-                return LoadingWidget();
+                return Center(child: LoadingWidget());
               }else if (state is QuoteIsLoaded){
                 return homePageContent(state.getQuotes);
 
