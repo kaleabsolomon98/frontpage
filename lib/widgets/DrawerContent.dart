@@ -45,7 +45,7 @@ Widget drawerContent(BuildContext context){
         title: Text("Awkward"),
         trailing: Icon(Icons.star),
         onTap: (){
-            Navigator.of(context).pop(BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("Awkward")))  ;
+          BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("Awkward"));
         },
       ),
       ListTile(

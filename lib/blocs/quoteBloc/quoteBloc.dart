@@ -22,6 +22,7 @@ class QuoteBloc extends Bloc<QuoteEvent,QuoteState>{
         yield QuoteIsLoaded(quote);
 
       }catch(_) {
+        print('by tag error');
         yield QuoteIsNotLoaded();
       }
     }else if(event is FetchQuote){
@@ -33,15 +34,6 @@ class QuoteBloc extends Bloc<QuoteEvent,QuoteState>{
       }catch(_) {
         yield QuoteIsNotLoaded();
       }
-    }else if(event is QuoteDetailEvent){
-      yield QuoteIsLoading();
-      try{
-
-
-      }catch(e){
-        yield QuoteIsNotLoaded();
-      }
-
     }
   }
 

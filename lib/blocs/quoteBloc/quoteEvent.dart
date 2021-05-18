@@ -14,7 +14,6 @@ class FetchQuote extends QuoteEvent{
 
 class FetchQuoteByTag extends QuoteEvent{
   final tag;
-
   FetchQuoteByTag(this.tag);
 
   @override

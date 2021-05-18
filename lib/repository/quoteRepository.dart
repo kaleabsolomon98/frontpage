@@ -3,8 +3,6 @@ import 'package:project4/helper/Constants.dart';
 import 'dart:convert';
 import 'package:project4/models/QuoteModel.dart';
 
-
-
 class QuoteRepository{
 
     Future<List<QuoteModel>> getQuotesByTag(String tag) async{
@@ -30,14 +28,15 @@ class QuoteRepository{
     return parsedJson(result.body);
 
   }
-    Future<List<QuoteModel>> getDetailQuote(String position) async{
-      final result = await http.Client().get(Uri.parse(baseUrlGetQuoteDetail),headers:<String,String>{'authorization':basicAuth});
 
-      if(result.statusCode != 200)
-        throw Exception();
-      return parsedJson(result.body);
 
-    }
+//    Future<List<QuoteModel>> getDetailQuote(String position) async{
+//      final result = await http.Client().get(Uri.parse(baseUrlGetQuoteDetail),headers:<String,String>{'authorization':basicAuth});
+//
+//      if(result.statusCode != 200)
+//        throw Exception();
+//      return parsedJson(result.body);
+//    }
 
 
 

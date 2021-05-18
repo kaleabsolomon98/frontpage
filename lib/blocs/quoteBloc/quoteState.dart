@@ -21,7 +21,6 @@ class QuoteIsLoaded extends QuoteState{
   @override
   // TODO: implement props
   List<Object> get props => [_quotes];
-
 }
 
 class QuoteDetailLoaded extends QuoteState{

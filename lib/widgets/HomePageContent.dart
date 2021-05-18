@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project4/blocs/quoteBloc/quote.dart';
-import 'package:project4/blocs/quoteBloc/quoteBloc.dart';
 import 'package:project4/models/QuoteModel.dart';
-import 'package:project4/screens/DetailPage.dart';
-import 'package:project4/screens/HomePage.dart';
+
 
 
 
@@ -48,9 +44,6 @@ import 'package:project4/screens/HomePage.dart';
 
 
 Widget homePageContent(List<QuoteModel> quotes) {
-
-
-
   return Expanded(
     child: ListView.builder(
       itemCount: quotes.length,
@@ -68,8 +61,9 @@ Widget homePageContent(List<QuoteModel> quotes) {
                   title: Text(quotes[index].quote),
                   subtitle: Text(quotes[index].tag),
                    onTap: (){
-                     BlocProvider.of<QuoteBloc>(context).add(QuoteDetailEvent(index));
-                     Navigator.of(context).push(MaterialPageRoute(builder:(_) => DetailPage()));
+
+//                     BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("Love"));
+//                     Navigator.of(context).push(MaterialPageRoute(builder:(_) => DetailPage()));
                    }
                    ,
                 ),
