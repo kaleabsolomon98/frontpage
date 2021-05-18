@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 class QuoteEvent extends Equatable{
   @override
@@ -18,5 +19,15 @@ class FetchQuoteByTag extends QuoteEvent{
   @override
   // TODO: implement props
   List<Object> get props => [tag];
+}
+
+class QuoteDetailEvent extends QuoteEvent{
+  final position;
+
+  QuoteDetailEvent(this.position);
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [position];
 }
 

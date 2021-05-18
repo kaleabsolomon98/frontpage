@@ -21,8 +21,19 @@ class QuoteIsLoaded extends QuoteState{
   @override
   // TODO: implement props
   List<Object> get props => [_quotes];
-
 }
+
+class QuoteDetailLoaded extends QuoteState{
+  final QuoteModel _quote;
+  QuoteDetailLoaded(this._quote);
+
+  QuoteModel get getQuoteDetail => _quote;
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [_quote];
+}
+
 
 class QuoteIsNotLoaded extends QuoteState{}
 

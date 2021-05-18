@@ -4,7 +4,9 @@ import 'package:project4/blocs/quoteBloc/quoteBloc.dart';
 import 'package:project4/blocs/quoteBloc/quoteState.dart';
 import 'package:project4/models/QuoteModel.dart';
 import 'package:project4/widgets/DrawerContent.dart';
+import 'package:project4/widgets/ErrorDisplayWidget.dart';
 import 'package:project4/widgets/HomePageContent.dart';
+import 'package:project4/widgets/SplashScreenWidget.dart';
 
 class HomePage extends StatelessWidget {
   final  List<QuoteModel> quote;
@@ -13,28 +15,28 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final quoteBloc = BlocProvider.of<QuoteBloc>(context);
-
     return MaterialApp(
-      debugShowCheckedModeBanner: false ,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text("Teen Quote"),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             BlocBuilder<QuoteBloc, QuoteState>(builder: (context, state) {
-              if (state is QuoteIsLoaded) {
-                print("comes here:HOME PAGE: " + state.getQuotes[1].quote.toString());
+              if (state is QuoteIsLoading) {
+//                print("comes here:HOME PAGE: " + state.getQuotes[1].quote.toString());
+                return Center(child: LoadingWidget());
+              }else if (state is QuoteIsLoaded){
                 return homePageContent(state.getQuotes);
-              }
-              return Container(
-                child: Center(
-                  child: Text("Error Loading Data"),
-                ),
-              );
-            }),
 
+              }else if(state is QuoteIsNotLoaded){
+                return ErrorDisplayWidget('Homepage(quote is not loaded): Error Loading Data');
+              }
+              return ErrorDisplayWidget('Home page: Error Loading Data');
+
+            }),
           ],
         ),
 

@@ -8,3 +8,10 @@ Widget SplashScreenWidget() {
   );
 
 }
+
+Widget LoadingWidget(){
+  return SpinKitWave(
+    color: Colors.black,
+    size: 40,
+  );
+}
