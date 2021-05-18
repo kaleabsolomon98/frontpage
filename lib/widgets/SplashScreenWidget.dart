@@ -8,3 +8,10 @@ Widget SplashScreenWidget() {
   );
 
 }
+
+Widget LoadingWidget(){
+  return SpinKitFadingGrid(
+    color: Colors.black,
+    size: 40,
+  );
+}

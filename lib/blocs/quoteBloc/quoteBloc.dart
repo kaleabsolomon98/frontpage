@@ -17,8 +17,10 @@ class QuoteBloc extends Bloc<QuoteEvent,QuoteState>{
   Stream<QuoteState> mapEventToState(QuoteEvent event) async* {
     // TODO: implement mapEventToState
     if(event is FetchQuoteByTag){
+      yield QuoteIsLoading();
       try{
         List<QuoteModel> quote = await quoteRepository.getQuotesByTag(event.tag);
+        print("by tag: " + quote[1].quote);
         yield QuoteIsLoaded(quote);
 
       }catch(_) {
