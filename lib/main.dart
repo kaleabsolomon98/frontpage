@@ -12,20 +12,24 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+  //  var mediaQuery=MediaQuery.of(context);
+      AppBar appBar=AppBar(
+          title: Text("Teen Quote"));
 
     return MaterialApp(
       debugShowCheckedModeBanner: false ,
       home: Scaffold(
-         backgroundColor: Colors.blueAccent,
-        appBar: AppBar(
-          title: Text("Teen Quote"),
-        ),
-        body: BlocProvider(
-            create: (BuildContext context) => QuoteBloc(QuoteRepository())..add(FetchQuote()),
-            child: HomePage()
-        ),
+         backgroundColor:const Color(0xffffff).withOpacity(1),
+        appBar:appBar ,
+        
+         body:
+          BlocProvider(
+             create: (BuildContext context) => QuoteBloc(QuoteRepository())..add(FetchQuote()),
+            child: HomePage(appBar)
+          ),
 
         drawer: Drawer(
             child:drawerContent(context)

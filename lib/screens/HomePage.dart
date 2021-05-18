@@ -5,13 +5,19 @@ import 'package:project4/blocs/quoteBloc/quoteState.dart';
 import 'package:project4/widgets/HomePageContent.dart';
 
 class HomePage extends StatelessWidget {
+  final AppBar appbar;
+HomePage(this.appbar);
+
   @override
   Widget build(BuildContext context) {
-    final quoteBloc = BlocProvider.of<QuoteBloc>(context);
+
+
+   // final quoteBloc = BlocProvider.of<QuoteBlocTag>(context);
 
     return Column(
       children: [
         BlocBuilder<QuoteBloc, QuoteState>(
+       //   bloc:BlocProvider.of<QuoteBlocTag>(context) ,
 
             builder: (context, state) {
           if (state is QuoteIsNotLoaded) {
@@ -23,7 +29,7 @@ class HomePage extends StatelessWidget {
           } else if (state is QuoteIsLoading) {
             return Center(child: CircularProgressIndicator());
           }else if(state is QuoteIsLoaded){
-            return homePageContent(state.getQuotes);
+            return HomePageContent(state.getQuotes,appbar,context);
 
           }
           return Center(child: CircularProgressIndicator());

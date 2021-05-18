@@ -2,26 +2,26 @@ import 'package:equatable/equatable.dart';
 import 'package:project4/models/QuoteModel.dart';
 
 
-class QuoteState extends Equatable{
+class QuoteStateTag extends Equatable{
   @override
   // TODO: implement props
   List<Object> get props => [];
 }
 
 
-class QuoteIsLoading extends QuoteState{
+class QuoteIsLoading extends QuoteStateTag{
 }
 
-class QuoteIsLoaded extends QuoteState{
+class QuoteIsLoadedt extends QuoteStateTag{
   final List<QuoteModel> _quotes;
 
-  QuoteIsLoaded(this._quotes);
-  List<QuoteModel> get getQuotes => _quotes;
+  QuoteIsLoadedt(this._quotes);
+  List<QuoteModel> get getQuotesTag => _quotes;
 
   @override
   // TODO: implement props
   List<Object> get props => [_quotes];
 
 }
-class QuoteIsNotLoaded extends QuoteState{}
+class QuoteIsNotLoaded extends QuoteStateTag{}
 

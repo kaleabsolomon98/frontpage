@@ -25,7 +25,8 @@ class QuoteBloc extends Bloc<QuoteEvent,QuoteState>{
       }catch(_) {
         yield QuoteIsNotLoaded();
       }
-    }else if(event is FetchQuote){
+      }
+    else if(event is FetchQuote){
       yield QuoteIsLoading();
       try{
         List<QuoteModel> quote = await quoteRepository.getQuotes();

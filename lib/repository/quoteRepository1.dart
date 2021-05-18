@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:project4/models/QuoteModel.dart';
 
 
-class QuoteRepository{
+class QuoteRepository1{
 
   Future<List<QuoteModel>> getQuotesByTag(String tag) async{
 
@@ -14,9 +14,9 @@ class QuoteRepository{
       throw Exception();
     return parsedJson(result.body);
   }
-  Future<List<QuoteModel>> getQuotes() async{
-    print('one the getQuote method');
-    final result = await http.Client().get(Uri.parse(baseUrl),headers:<String,String>{'authorization':basicAuth});
+  Future<List<QuoteModel>> getQuotesTag() async{
+    print('the getQuoteTag method');
+    final result = await http.Client().get(Uri.parse(baseUrl1),headers:<String,String>{'authorization':basicAuth});
     print('printing get request result : ' + result.body.toString());
 
     if(result.statusCode != 200) {
@@ -26,19 +26,6 @@ class QuoteRepository{
     print("SUCCESS: gets here:" + result.statusCode.toString());
 //    print("inside parsedJson : " + json.decode(result.body));
     return parsedJson(result.body);
-
-  }
-Future<List<QuoteModel>> getQuotesTag() async{
-    print(' the getQuoteTag method');
-    final result = await http.Client().get(Uri.parse(baseUrl1),headers:<String,String>{'authorization':basicAuth});
-    print('printing get request result : ' + result.body.toString());
-    if(result.statusCode != 200) {
-      print("Exception thrown: " + result.statusCode.toString());
-      throw Exception();
-    }
-    print("SUCCESS: gets here:" + result.statusCode.toString());
-    print("inside parsedJson : " + json.decode(result.body));
-    return jsonDecode(result.body);
 
   }
 
