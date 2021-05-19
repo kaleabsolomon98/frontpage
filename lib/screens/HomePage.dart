@@ -9,6 +9,8 @@ import 'package:project4/widgets/HomePageContent.dart';
 import 'package:project4/widgets/SplashScreenWidget.dart';
 
 class HomePage extends StatelessWidget {
+
+  
   final  List<QuoteModel> quote;
 
   const HomePage({this.quote});
@@ -17,7 +19,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: new ThemeData(
+        primaryColor: Colors.grey[500],
+      ),
+
       home: Scaffold(
+
         appBar: AppBar(
           title: Text("Teen Quote"),
         ),

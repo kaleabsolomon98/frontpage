@@ -13,7 +13,6 @@ class QuoteRepository{
     if(result.statusCode != 200)
       throw Exception();
     return parsedJsonQuoteByTag(result.body);
-
   }
 
   Future<List<QuoteModel>> getQuotes() async{
