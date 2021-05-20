@@ -19,10 +19,9 @@ class SplashScreen extends StatelessWidget {
         child: BlocConsumer<QuoteBloc, QuoteState>(
           listener: (context, state) {
             if (state is QuoteIsLoaded) {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => HomePage()));
+//              Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomePage()));
               //named
-//              Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+              Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
               //not named
 //              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => HomePage()), (Route<dynamic> route) => false);
 //              return HomePage();

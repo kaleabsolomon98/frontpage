@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project4/blocs/Theme/ChangeThemeBloc.dart';
 import 'package:project4/blocs/quoteBloc/quoteBloc.dart';
 import 'package:project4/blocs/quoteBloc/quoteState.dart';
 import 'package:project4/models/QuoteModel.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: new ThemeData(
-        primaryColor: Colors.grey[500],
+        primaryColor: Colors.black,
       ),
 
       home: Scaffold(

@@ -28,6 +28,7 @@ dependencies:
   http: ^0.13.3
   equatable: ^2.0.0
   flutter_spinkit: ^4.1.2+1
+  shared_preferences: ^2.0.5
 
 dev_dependencies:
   flutter_test:

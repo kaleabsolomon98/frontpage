@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project4/blocs/Theme/ChangeThemeBloc.dart';
 import 'package:project4/blocs/quoteBloc/quoteBloc.dart';
 import 'package:project4/blocs/quoteBloc/quoteEvent.dart';
 import 'package:project4/models/QuoteModel.dart';
@@ -17,7 +18,7 @@ Widget homePageContent(List<QuoteModel> quotes) {
           scrollDirection: Axis.horizontal,
           itemCount: tags.length,
           itemBuilder: (BuildContext context, int index) => Card(
-            color: Colors.grey,
+            color: changeThemeBloc.state.themeData.primaryColor,
             child: Center(
               child: TextButton(
                 style:TextButton.styleFrom(
@@ -46,9 +47,9 @@ Widget homePageContent(List<QuoteModel> quotes) {
                 child: Column(
                   children: <Widget>[
                     ListTile(
-                        leading: Icon(Icons.album, size: 50),
+                        leading: Icon(Icons.album, size: 50,color: changeThemeBloc.state.themeData.primaryColor,),
                         title: Text(quotes[index].quote),
-                        subtitle: Text(quotes[index].tag),
+                        subtitle: Text(quotes[index].tag,style: changeThemeBloc.state.themeData.textTheme.bodyText1),
                         onTap: () {
 //                     BlocProvider.of<QuoteBloc>(context).add(FetchQuoteByTag("Love"));
 //                     Navigator.of(context).push(MaterialPageRoute(builder:(_) => DetailPage()));

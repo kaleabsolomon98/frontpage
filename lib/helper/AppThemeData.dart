@@ -5,7 +5,7 @@ final ThemeData kLightTheme = _buildLightTheme();
 ThemeData _buildLightTheme() {
   final ThemeData base = ThemeData.light();
   return base.copyWith(
-    primaryColor: Colors.white,
+    primaryColor: Colors.white38,
     accentColor: Colors.black,
     canvasColor: Colors.transparent,
     primaryIconTheme: IconThemeData(color: Colors.black),
@@ -42,17 +42,17 @@ ThemeData _buildDarkTheme() {
       headline5: TextStyle(
           fontFamily: 'Sans',
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color:  Color(0xff323639),
           fontSize: 24),
       bodyText2: TextStyle(
           fontFamily: 'Sans',
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color:  Color(0xff323639),
           fontSize: 24),
       bodyText1: TextStyle(
           fontFamily: 'Sans',
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color:  Color(0xff323639),
           fontSize: 18),
     ),
   );
@@ -71,17 +71,17 @@ ThemeData _buildAmoledTheme() {
       headline5: TextStyle(
           fontFamily: 'Sans',
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: Colors.black,
           fontSize: 24),
       bodyText2: TextStyle(
           fontFamily: 'Sans',
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: Colors.black,
           fontSize: 24),
       bodyText1: TextStyle(
           fontFamily: 'Sans',
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: Colors.black,
           fontSize: 18),
     ),
   );
