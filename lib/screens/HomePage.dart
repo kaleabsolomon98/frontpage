@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project4/blocs/Theme/ChangeThemeBloc.dart';
 import 'package:project4/blocs/quoteBloc/quoteBloc.dart';
 import 'package:project4/blocs/quoteBloc/quoteState.dart';
 import 'package:project4/models/QuoteModel.dart';
@@ -9,6 +10,8 @@ import 'package:project4/widgets/HomePageContent.dart';
 import 'package:project4/widgets/SplashScreenWidget.dart';
 
 class HomePage extends StatelessWidget {
+
+  
   final  List<QuoteModel> quote;
 
   const HomePage({this.quote});
@@ -17,7 +20,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: new ThemeData(
+        primaryColor: Colors.black,
+      ),
+
       home: Scaffold(
+
         appBar: AppBar(
           title: Text("Teen Quote"),
         ),

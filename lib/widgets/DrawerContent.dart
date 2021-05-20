@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project4/blocs/quoteBloc/quote.dart';
 import 'package:project4/screens/HomePage.dart';
+import 'package:project4/screens/settings.dart';
 
 Widget drawerContent(BuildContext context){
   return Column(
@@ -20,7 +21,22 @@ Widget drawerContent(BuildContext context){
                   "J",
                   style: TextStyle(fontSize: 40.0),
                 ),
+
               ),
+              otherAccountsPictures: [
+                CircleAvatar(
+                  backgroundColor:
+                  Theme.of(context).platform == TargetPlatform.iOS ? Colors.blue : Colors.white,
+                  child: Text(
+                    "S",
+                    style: TextStyle(fontSize: 40.0),
+                  ),
+                ),
+
+              ],
+              onDetailsPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder:(_) => SettingsPage()));
+              },
             ),
 
             ListTile(
