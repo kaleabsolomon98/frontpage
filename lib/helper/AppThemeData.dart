@@ -34,7 +34,7 @@ final ThemeData kDarkTheme = _buildDarkTheme();
 ThemeData _buildDarkTheme() {
   final ThemeData base = ThemeData.dark();
   return base.copyWith(
-    primaryColor: Color(0xff323639),
+    primaryColor: Colors.black,
     accentColor: Colors.blue,
     canvasColor: Colors.transparent,
     primaryIconTheme: IconThemeData(color: Colors.black),

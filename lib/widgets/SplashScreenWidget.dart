@@ -15,3 +15,11 @@ Widget LoadingWidget(){
     size: 40,
   );
 }
+
+
+Widget ButtomLoadingWidget(){
+  return SpinKitCircle(
+    color: Colors.black,
+    size: 30,
+  );
+}

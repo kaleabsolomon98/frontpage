@@ -5,6 +5,7 @@ import 'package:project4/blocs/Example/postBlocTest.dart';
 import 'package:project4/blocs/Example/postEvent.dart';
 import 'package:project4/blocs/Example/postState.dart';
 import 'package:project4/models/QuoteModel.dart';
+import 'package:project4/widgets/SplashScreenWidget.dart';
 
 class DisplayContentPage extends StatefulWidget {
   @override
@@ -30,7 +31,7 @@ class _HomePageState extends State<DisplayContentPage> {
         builder: (context, state) {
           if (state is PostUninitialized) {
             return Center(
-              child: CircularProgressIndicator(),
+              child: LoadingWidget(),
             );
           }
           if (state is PostError) {
@@ -85,8 +86,7 @@ class BottomLoader extends StatelessWidget {
         child: SizedBox(
           width: 33,
           height: 33,
-          child: CircularProgressIndicator(
-            strokeWidth: 1.5,
+          child: ButtomLoadingWidget(
           ),
         ),
       ),
@@ -104,9 +104,9 @@ class PostWidget extends StatelessWidget {
     return ListTile(
       leading: Text(
         post.id.toString(),
-        style: TextStyle(fontSize: 10.0),
+        style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold),
       ),
-      title: Text('${post.quote_writer}'),
+      title: Text('${post.quote_writer}',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
       isThreeLine: true,
       subtitle: Text(post.quote),
       dense: true,

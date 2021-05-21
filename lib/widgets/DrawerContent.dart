@@ -95,7 +95,7 @@ Widget drawerContent(BuildContext context){
               },
             ),
             ListTile(
-              title: Text("Click"),
+              title: Text("PaginationTest"),
               trailing: Icon(Icons.star),
               onTap: (){
                 Navigator.of(context).push(MaterialPageRoute(builder:(_) => TestDislayScreen()));

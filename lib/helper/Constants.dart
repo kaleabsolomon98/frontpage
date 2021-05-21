@@ -8,4 +8,4 @@ String username = 'bloger_api@datascienceplc.com';
 String password = 'public-password';
 String basicAuth = 'Basic ' + base64Encode(utf8.encode('$username:$password'));
 
-String exampleUrl = "https://jsonplaceholder.typicode.com/posts?_start=";
+

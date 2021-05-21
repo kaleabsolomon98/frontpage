@@ -18,7 +18,7 @@ Widget homePageContent(List<QuoteModel> quotes) {
           scrollDirection: Axis.horizontal,
           itemCount: tags.length,
           itemBuilder: (BuildContext context, int index) => Card(
-            color: changeThemeBloc.state.themeData.primaryColor,
+            color: Colors.black,
             child: Center(
               child: TextButton(
                 style:TextButton.styleFrom(
@@ -47,7 +47,7 @@ Widget homePageContent(List<QuoteModel> quotes) {
                 child: Column(
                   children: <Widget>[
                     ListTile(
-                        leading: Icon(Icons.album, size: 50,color: changeThemeBloc.state.themeData.primaryColor,),
+                        leading: Icon(Icons.album, size: 50,color: Colors.black,),
                         title: Text(quotes[index].quote),
                         subtitle: Text(quotes[index].tag,style: changeThemeBloc.state.themeData.textTheme.bodyText1),
                         onTap: () {
