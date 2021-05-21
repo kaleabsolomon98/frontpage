@@ -8,15 +8,14 @@ import 'package:project4/blocs/Example/postEvent.dart';
 import 'package:project4/blocs/Example/postState.dart';
 import 'package:project4/helper/Constants.dart';
 import 'package:project4/models/QuoteModel.dart';
+import 'package:project4/repository/quoteRepository.dart';
 
 
 
 
 class PostBloc extends Bloc<PostEvent, PostState> {
   var quoteLength = 20;
-  final http.Client httpClient;
-
-  PostBloc({@required this.httpClient}) : super(null);
+  PostBloc() : super(PostUninitialized());
 
 
 
@@ -33,8 +32,8 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 //    );
 //  }
 
-//  @override
-//  get initialState => PostUninitialized();
+  @override
+  get initialState => PostUninitialized();
 
   @override
   Stream<PostState> mapEventToState(PostEvent event) async* {
@@ -80,7 +79,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 //    }
 //  }
 
-  Future<List<QuoteModel>> getQuotes(int startIndex, int limit) async{
+  Future<List<QuoteModel>> getQuotes  (int startIndex, int limit) async{
     print('on the getQuote method');
     final result = await http.Client().get(Uri.parse("https://datascienceplc.com/apps/manager/api/items/blog/post?page=$startIndex&app_id=7&rand=9985"),headers:<String,String>{'authorization':basicAuth});
     print('printing get request result : ' + result.body.toString());

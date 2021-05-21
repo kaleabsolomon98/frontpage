@@ -6,6 +6,8 @@ import 'package:project4/repository/quoteRepository.dart';
 import 'package:project4/screens/HomePage.dart';
 import 'package:project4/screens/SplashScreen.dart';
 import 'package:project4/screens/settings.dart';
+import 'package:project4/screens/testScreen/DisplayContentPage.dart';
+import 'package:project4/screens/testScreen/testDisplayScreen.dart';
 import 'package:project4/widgets/DrawerContent.dart';
 
 import 'blocs/quoteBloc/quoteBloc.dart';
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/splash':(context) => SplashScreen(),
         '/home': (context) => HomePage(),
         '/settings':(context) => SettingsPage(),
+        '/post':(context) => TestDislayScreen(),
 //        '/details': (context) => DetailsPage(),
       },
 
