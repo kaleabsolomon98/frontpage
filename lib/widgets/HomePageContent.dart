@@ -14,6 +14,7 @@ Widget homePageContent(List<QuoteModel> quotes) {
       SizedBox(
         height: 100,
         child: ListView.builder(
+          physics: AlwaysScrollableScrollPhysics(),
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemCount: tags.length,

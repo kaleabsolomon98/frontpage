@@ -31,3 +31,9 @@ class QuoteDetailEvent extends QuoteEvent{
   List<Object> get props => [position];
 }
 
+class QuoteEventRefresh extends QuoteEvent {
+  @override
+  // TODO: implement props
+  List<Object> get props => [];
+}
+

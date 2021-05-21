@@ -2,13 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 import 'package:project4/blocs/Example/postEvent.dart';
 import 'package:project4/blocs/Example/postState.dart';
 import 'package:project4/helper/Constants.dart';
 import 'package:project4/models/QuoteModel.dart';
-import 'package:project4/repository/quoteRepository.dart';
 
 
 
@@ -56,6 +54,19 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       } catch (_) {
         yield PostError();
       }
+    }
+    if (event is ItemsEventRefresh) {
+      yield ItemStateRefreshing();
+
+      try{
+        final posts = await getQuotes(1,quoteLength);
+        await Future<void>.delayed(Duration(seconds: 3));
+
+        yield PostLoaded(posts: posts, hasReachedMax: false);
+      }catch(_){
+        yield PostError();
+      }
+
     }
   }
 

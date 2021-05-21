@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project4/blocs/Example/postEvent.dart';
 import 'package:project4/blocs/Theme/ChangeThemeBloc.dart';
+import 'package:project4/blocs/quoteBloc/quote.dart';
 import 'package:project4/blocs/quoteBloc/quoteBloc.dart';
 import 'package:project4/blocs/quoteBloc/quoteState.dart';
 import 'package:project4/models/QuoteModel.dart';
@@ -29,23 +31,35 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text("Teen Quote"),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            BlocBuilder<QuoteBloc, QuoteState>(builder: (context, state) {
-              if (state is QuoteIsLoading) {
+        body: RefreshIndicator(
+          onRefresh: (){
+
+            final itemsBloc = BlocProvider.of<QuoteBloc>(context)..add(QuoteEventRefresh());
+
+            return itemsBloc.stream.firstWhere((e) => e is! QuoteEventRefresh);
+
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BlocBuilder<QuoteBloc, QuoteState>(
+                  buildWhen: (previous, current) => current is QuoteIsLoaded,
+                  builder: (context, state) {
+
+                if (state is QuoteIsLoading) {
 //                print("comes here:HOME PAGE: " + state.getQuotes[1].quote.toString());
-                return Center(child: LoadingWidget());
-              }else if (state is QuoteIsLoaded){
-                return homePageContent(state.getQuotes);
+                  return Center(child: LoadingWidget());
+                }else if (state is QuoteIsLoaded){
+                  return homePageContent(state.getQuotes);
 
-              }else if(state is QuoteIsNotLoaded){
-                return ErrorDisplayWidget('Homepage(quote is not loaded): Error Loading Data');
-              }
-              return ErrorDisplayWidget('Home page: Error Loading Data');
+                }else if(state is QuoteIsNotLoaded){
+                  return ErrorDisplayWidget('Homepage(quote is not loaded): Error Loading Data');
+                }
+                return ErrorDisplayWidget('Home page: Error Loading Data');
 
-            }),
-          ],
+              }),
+            ],
+          ),
         ),
 
 

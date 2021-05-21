@@ -18,45 +18,50 @@ class _HomePageState extends State<DisplayContentPage> {
 
   _HomePageState() {
     _scrollController.addListener(_onScroll);
-
-
   }
 
   @override
   Widget build(BuildContext context) {
-    final PostBloc _postBloc = BlocProvider.of<PostBloc>(context);
+//    final PostBloc _postBloc = BlocProvider.of<PostBloc>(context);
 
-     return Container(
-       child: BlocBuilder<PostBloc, PostState>(
-        builder: (context, state) {
-          if (state is PostUninitialized) {
-            return Center(
-              child: LoadingWidget(),
-            );
-          }
-          if (state is PostError) {
-            return Center(
-              child: Text('failed to fetch posts'),
-            );
-          }
-          if (state is PostLoaded) {
-            if (state.posts.isEmpty) {
+     return RefreshIndicator(
+       onRefresh: (){
+         final itemsBloc = BlocProvider.of<PostBloc>(context)..add(ItemsEventRefresh());
+         return itemsBloc.stream.firstWhere((e) => e is! ItemsEventRefresh);
+
+       },
+       child: Container(
+         child: BlocBuilder<PostBloc, PostState>(
+          builder: (context, state) {
+            if (state is PostUninitialized) {
               return Center(
-                child: Text('no posts'),
+                child: LoadingWidget(),
               );
             }
-            return ListView.builder(
-              itemBuilder: (BuildContext context, int index) {
-                return index >= state.posts.length ? BottomLoader() : PostWidget(post: state.posts[index]);
-              },
-              itemCount: state.hasReachedMax ? state.posts.length : state.posts.length + 1,
-              controller: _scrollController,
-            );
-          }else{
-            return Text("some data");
-          }
-        },
+            if (state is PostError) {
+              return Center(
+                child: Text('failed to fetch posts'),
+              );
+            }
+            if (state is PostLoaded) {
+              if (state.posts.isEmpty) {
+                return Center(
+                  child: Text('no posts'),
+                );
+              }
+              return ListView.builder(
+                itemBuilder: (BuildContext context, int index) {
+                  return index >= state.posts.length ? BottomLoader() : PostWidget(post: state.posts[index]);
+                },
+                itemCount: state.hasReachedMax ? state.posts.length : state.posts.length + 1,
+                controller: _scrollController,
+              );
+            }else{
+              return Text("some data");
+            }
+          },
     ),
+       ),
      );
   }
 
@@ -72,7 +77,6 @@ class _HomePageState extends State<DisplayContentPage> {
     final currentScroll = _scrollController.position.pixels;
     if (maxScroll - currentScroll <= _scrollThreshold) {
       BlocProvider.of<PostBloc>(context).add(Fetch());
-
     }
   }
 }

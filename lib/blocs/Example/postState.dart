@@ -54,7 +54,7 @@ class PostLoaded extends PostState {
   List<Object> get props => [posts,hasReachedMax];
 }
 
-class ItemsStateRefreshing extends PostState {
+class ItemStateRefreshing extends PostState {
   @override
   // TODO: implement props
   List<Object> get props => [];
