@@ -37,3 +37,9 @@ class QuoteDetailLoaded extends QuoteState{
 
 class QuoteIsNotLoaded extends QuoteState{}
 
+class QuoteStateRefreshing extends QuoteState {
+  @override
+  // TODO: implement props
+  List<Object> get props => [];
+}
+

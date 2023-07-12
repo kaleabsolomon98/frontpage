@@ -29,7 +29,7 @@ class SplashScreen extends StatelessWidget {
           },
           builder: (context, state) {
             if (state is QuoteIsNotLoaded) {
-              return ErrorDisplayWidget('Splash Screen: Error Loading Data');
+              return ErrorDisplayWidget('Please Connect to internet: Error Loading Data');
             } else {
 //              return ErrorDisplayWidget(text:'Splash Screen22: Error Loading Data');
               return SplashScreenWidget();
